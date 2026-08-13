@@ -303,7 +303,7 @@
       }
 
       var lines = [
-        'Hola, necesito ' + topic + ' en Viña del Mar.',
+        'Hola, necesito ' + topic + ' en La Serena.',
         '',
         'Nombre: ' + name.value.trim(),
         'Teléfono: ' + phone.value.trim()
