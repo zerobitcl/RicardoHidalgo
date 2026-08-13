@@ -903,6 +903,93 @@ main {
 }
 
 /* ============================================
+   Experiencia Comprobable — stats
+   ============================================ */
+.section--proof {
+  background: var(--color-navy-dark);
+  color: var(--color-white);
+  border-block: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.section--proof .section-label {
+  color: var(--color-gold);
+}
+
+.section--proof .section-header h2 {
+  color: var(--color-white);
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+  .proof-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    background var(--transition-base);
+}
+
+.proof-item:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: rgba(212, 175, 55, 0.05);
+  transform: translateY(-4px);
+}
+
+.proof-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-gold);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-sm);
+}
+
+.proof-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.proof-metric {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.proof-note {
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.48);
+  text-align: left;
+}
+
+/* ============================================
    Proceso — cómo trabajamos
    ============================================ */
 .section--process {
