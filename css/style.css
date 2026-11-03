@@ -1257,6 +1257,19 @@ main {
   margin-bottom: 1rem;
 }
 
+.about-content a {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: rgba(212, 175, 55, 0.55);
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.about-content a:hover {
+  color: var(--color-gold-dark);
+  text-decoration-color: currentColor;
+}
+
 .about-emphasis {
   font-style: italic;
   color: var(--color-navy) !important;
@@ -1811,6 +1824,35 @@ main {
   font-size: 0.92rem;
   color: var(--color-gray-600);
   margin: 0;
+}
+
+/* Guía de contenido local (landings) */
+.landing-guide {
+  padding-block: var(--section-padding);
+  background: var(--color-white);
+}
+
+.guide-stack {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 46rem;
+}
+
+.guide-block h3 {
+  font-size: 1.2rem;
+  color: var(--color-navy);
+  margin-bottom: 0.65rem;
+}
+
+.guide-block p {
+  font-size: 0.98rem;
+  color: var(--color-gray-600);
+  margin-bottom: 0.75rem;
+  line-height: 1.65;
+}
+
+.guide-block p:last-child {
+  margin-bottom: 0;
 }
 
 .landing-hero-cta {
