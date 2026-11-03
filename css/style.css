@@ -1257,7 +1257,10 @@ main {
   margin-bottom: 1rem;
 }
 
-.about-content a {
+.about-content a,
+.benefit-text a,
+.faq-answer-inner a,
+.footer-brand a {
   color: var(--color-navy);
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -1265,7 +1268,10 @@ main {
   transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
 }
 
-.about-content a:hover {
+.about-content a:hover,
+.benefit-text a:hover,
+.faq-answer-inner a:hover,
+.footer-brand a:hover {
   color: var(--color-gold-dark);
   text-decoration-color: currentColor;
 }
