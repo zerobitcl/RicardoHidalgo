@@ -210,6 +210,31 @@
   }
 
   /* ------------------------------------------
+     GA4: contactos. Un solo listener en el documento
+     para no duplicar el hit si el clic cae en el ícono.
+     ------------------------------------------ */
+  function trackContact(eventName) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, {
+      event_category: 'contact',
+      event_label: window.location.pathname
+    });
+  }
+
+  function initContactTracking() {
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest ? e.target.closest('a') : null;
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      if (/^https?:\/\/wa\.me\//i.test(href) || /whatsapp/i.test(href)) {
+        trackContact('click_whatsapp');
+      } else if (href.indexOf('tel:') === 0) {
+        trackContact('phone_click');
+      }
+    });
+  }
+
+  /* ------------------------------------------
      Formulario de contacto (1 paso) → WhatsApp
      ------------------------------------------ */
   function initContactForm() {
@@ -324,6 +349,8 @@
         success.textContent = 'Datos validados. Te redirigimos a WhatsApp…';
       }
 
+      trackContact('generate_lead');
+
       window.setTimeout(function () {
         window.open(url, '_blank', 'noopener,noreferrer');
         form.reset();
@@ -340,6 +367,7 @@
     initMobileNav();
     initFaq();
     initSmoothAnchors();
+    initContactTracking();
     initContactForm();
   }
 

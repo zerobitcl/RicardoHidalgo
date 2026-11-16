@@ -678,6 +678,13 @@ main {
   margin-bottom: 1rem;
 }
 
+.practice-routes {
+  max-width: 40rem;
+  margin: 0 0 clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+}
+
 .section-lead,
 .section-header p {
   font-size: 1.05rem;
@@ -1258,6 +1265,10 @@ main {
 }
 
 .about-content a,
+.section-lead a,
+.section-header p a,
+.practice-routes a,
+.landing-hero-lead a,
 .benefit-text a,
 .faq-answer-inner a,
 .footer-brand a {
@@ -1269,11 +1280,24 @@ main {
 }
 
 .about-content a:hover,
+.section-lead a:hover,
+.section-header p a:hover,
+.practice-routes a:hover,
+.landing-hero-lead a:hover,
 .benefit-text a:hover,
 .faq-answer-inner a:hover,
 .footer-brand a:hover {
   color: var(--color-gold-dark);
   text-decoration-color: currentColor;
+}
+
+.landing-hero .landing-hero-lead a {
+  color: var(--color-gold);
+  text-decoration-color: rgba(212, 175, 55, 0.75);
+}
+
+.landing-hero .landing-hero-lead a:hover {
+  color: var(--color-white);
 }
 
 .about-emphasis {
