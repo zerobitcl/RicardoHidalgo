@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE7N7RHKC8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XE7N7RHKC8');
+    function loadGtag(){
+      if (window.__gtagLoaded) return;
+      window.__gtagLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XE7N7RHKC8';
+      s.onload = function () {
+        gtag('js', new Date());
+        gtag('config', 'G-XE7N7RHKC8');
+      };
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGtag, { timeout: 3000 });
+    } else {
+      window.addEventListener('load', function () { setTimeout(loadGtag, 1); });
+    }
   </script>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -45,8 +59,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="preload" as="image" href="img/abogado-la-serena-costa-hero-800.webp" imagesrcset="img/abogado-la-serena-costa-hero-800.webp 800w, img/abogado-la-serena-costa-hero.webp 1536w" imagesizes="100vw" fetchpriority="high">
 
   <script type="application/ld+json">
   {
@@ -202,18 +218,18 @@
     <!-- Hero Section -->
     <section class="landing-hero" aria-labelledby="landing-title">
             <div class="landing-hero-media" aria-hidden="true">
-        <img src="img/abogado-la-serena-costa-hero.webp" alt="Costa de La Serena, Region de Coquimbo - estudio juridico Ricardo Hidalgo" width="1536" height="864" fetchpriority="high" decoding="async">
+        <img src="img/abogado-la-serena-costa-hero.webp" srcset="img/abogado-la-serena-costa-hero-800.webp 800w, img/abogado-la-serena-costa-hero.webp 1536w" sizes="100vw" alt="Costa de La Serena, Region de Coquimbo - estudio juridico Ricardo Hidalgo" width="1536" height="864" fetchpriority="high" decoding="async">
       </div>
 <div class="hero-grid" aria-hidden="true"></div>
       <div class="container landing-hero-content">
-        <span class="hero-badge reveal">Defensa de Deudores · La Serena</span>
-        <h1 id="landing-title" class="reveal reveal-delay-1">
+        <span class="hero-badge reveal is-visible">Defensa de Deudores · La Serena</span>
+        <h1 id="landing-title" class="reveal is-visible">
           Defensa de deudores en La Serena: <em>detén embargos y cobranza abusiva</em>
         </h1>
-        <p class="landing-hero-lead reveal reveal-delay-2">
+        <p class="landing-hero-lead reveal is-visible">
           Si enfrentas juicios de cobranza, embargos o presión de acreedores, actúa ahora. Evaluamos tu caso y diseñamos una estrategia para proteger tu patrimonio.
         </p>
-        <div class="landing-hero-cta reveal reveal-delay-3">
+        <div class="landing-hero-cta reveal is-visible">
           <a
             href="https://wa.me/56951783266?text=Hola,%20quiero%20evaluar%20mi%20caso%20de%20deudas%20en%20La%20Serena"
             class="btn btn-whatsapp btn-lg"
@@ -225,7 +241,7 @@
           </a>
           <a href="#contacto-form" class="btn btn-secondary btn-lg">Completar formulario</a>
         </div>
-        <div class="hero-trust hero-trust--spaced reveal reveal-delay-3">
+        <div class="hero-trust hero-trust--spaced reveal is-visible">
           <span class="trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             Primera orientación

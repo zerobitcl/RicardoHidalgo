@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE7N7RHKC8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XE7N7RHKC8');
+    function loadGtag(){
+      if (window.__gtagLoaded) return;
+      window.__gtagLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XE7N7RHKC8';
+      s.onload = function () {
+        gtag('js', new Date());
+        gtag('config', 'G-XE7N7RHKC8');
+      };
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGtag, { timeout: 3000 });
+    } else {
+      window.addEventListener('load', function () { setTimeout(loadGtag, 1); });
+    }
   </script>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -28,8 +42,9 @@
   <meta property="og:image" content="https://www.abogadoricardohidalgo.cl/img/ricardo-hidalgo-abogado-la-serena.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&amp;family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
   <header class="site-header" role="banner">
@@ -58,9 +73,9 @@
   <main>
     <section class="blog-hero" aria-labelledby="blog-title">
       <div class="container">
-        <span class="hero-badge reveal">Publicaciones</span>
-        <h1 id="blog-title" class="reveal reveal-delay-1">Artículos de <em>Derecho Educacional</em></h1>
-        <p class="blog-hero-lead reveal reveal-delay-2">Análisis normativo y guías prácticas para sostenedores, equipos directivos y comunidades escolares.</p>
+        <span class="hero-badge reveal is-visible">Publicaciones</span>
+        <h1 id="blog-title" class="reveal is-visible">Artículos de <em>Derecho Educacional</em></h1>
+        <p class="blog-hero-lead reveal is-visible">Análisis normativo y guías prácticas para sostenedores, equipos directivos y comunidades escolares.</p>
       </div>
     </section>
 
