@@ -213,12 +213,19 @@
      GA4: contactos. Un solo listener en el documento
      para no duplicar el hit si el clic cae en el ícono.
      ------------------------------------------ */
+  var contactEventMeta = {
+    click_whatsapp: { event_category: 'engagement', event_label: 'whatsapp_contact' },
+    phone_click: { event_category: 'engagement', event_label: 'phone_call' },
+    generate_lead: { event_category: 'lead', event_label: 'contact_form' }
+  };
+
   function trackContact(eventName) {
     if (typeof window.gtag !== 'function') return;
-    window.gtag('event', eventName, {
-      event_category: 'contact',
+    var meta = contactEventMeta[eventName] || {
+      event_category: 'engagement',
       event_label: window.location.pathname
-    });
+    };
+    window.gtag('event', eventName, meta);
   }
 
   function initContactTracking() {
@@ -226,7 +233,7 @@
       var link = e.target.closest ? e.target.closest('a') : null;
       if (!link) return;
       var href = link.getAttribute('href') || '';
-      if (/^https?:\/\/wa\.me\//i.test(href) || /whatsapp/i.test(href)) {
+      if (/wa\.me|api\.whatsapp\.com|whatsapp\.com/i.test(href)) {
         trackContact('click_whatsapp');
       } else if (href.indexOf('tel:') === 0) {
         trackContact('phone_click');
